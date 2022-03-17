@@ -1,0 +1,7 @@
+/* 
+    struct WorldState {
+        accounts
+        blockchain
+    }
+
+*/
