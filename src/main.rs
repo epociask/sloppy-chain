@@ -1,7 +1,8 @@
-mod block;
+mod core;
+
 
 fn main() {
-    let b = block::new_block(0);
+    let b = core::new_block(0);
 
     println!("{}", b.header.height);
 }
