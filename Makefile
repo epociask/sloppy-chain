@@ -1,6 +1,6 @@
 
 build-bin:
-	@ rustc ./src/main.rs
+	@ rustc ./node/src/main.rs
 
 build-cargo:
 	@ cargo build --verbose

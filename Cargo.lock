@@ -21,6 +21,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 name = "chain"
 version = "0.1.0"
 dependencies = [
+ "primitives",
  "rand",
  "sha2",
 ]
@@ -86,6 +87,10 @@ name = "ppv-lite86"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eb9f9e6e233e5c4a35559a617bf40a4ec447db2e84c20b55a6f83167b7e57872"
+
+[[package]]
+name = "primitives"
+version = "0.1.0"
 
 [[package]]
 name = "rand"

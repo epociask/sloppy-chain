@@ -1,3 +1,7 @@
+members = [
+    "crates/primitives"
+]
+
 [package]
 name = "chain"
 version = "0.1.0"
@@ -9,3 +13,8 @@ edition = "2021"
 [dependencies]
 sha2 = "0.10"
 rand = "0.8.5"
+primitives = {path = "crates/primitives"}
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
