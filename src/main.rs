@@ -1,8 +1,7 @@
-mod core;
-
+use primitives::block::Block;
 
 fn main() {
-    let b = core::new_block(0);
+    let b = Block::new(0);
 
     println!("{}", b.header.height);
 }

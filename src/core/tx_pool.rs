@@ -1,4 +1,0 @@
-/*
-    Construct lightweight mem pool represented by priority queue
-
-*/
