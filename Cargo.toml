@@ -1,5 +1,6 @@
 members = [
-    "crates/primitives"
+    "crates/primitives",
+    "crates/crypto"
 ]
 
 [package]
@@ -11,9 +12,13 @@ edition = "2021"
 
 
 [dependencies]
-sha2 = "0.10"
-rand = "0.8.5"
+## Local dependencies
+api = {path= "crates/api"}
 primitives = {path = "crates/primitives"}
+crypto = {path = "crates/crypto"}
+
+## External Dependencies
+trie-db = {git="https://github.com/paritytech/trie", branch="master"}
 
 [[bin]]
 name = "main"

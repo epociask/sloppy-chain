@@ -1,7 +1,5 @@
-use primitives::block::Block;
+use api;
 
 fn main() {
-    let b = Block::new(0);
-
-    println!("{}", b.header.height);
+    api::run();
 }

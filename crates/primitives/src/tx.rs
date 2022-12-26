@@ -1,3 +1,6 @@
+use crypto::core_types::{Address};
+use serde::{Serialize, Deserialize};
+
 
 /* 
     - Support transaction decodings for: 
@@ -9,15 +12,17 @@
     - TX validation
 */
 
-struct CreateTx {
-    Address: Box<str>,
-    PublicKey: Box<str>,
-    Message: Box<str>,
-}
+// struct CreateTx {
+//     Address: Box<str>,
+//     PublicKey: Box<str>,
+//     Message: Box<str>,
+// }
 
-struct TransferTx {
-    To: Box<str>,
-    Amount: u32,
+#[derive(Debug, Serialize, Deserialize)]
+pub struct TransferTx {
+    from: Address,
+    to: Address,
+    amount: u32,
 }
 
 pub enum TxType {
@@ -26,6 +31,6 @@ pub enum TxType {
 }
 
 pub struct Transaction {
-    pub Nonce: u32,
-    pub Type: TxType,
+    pub nonce: u32,
+    pub type_: TxType,
 }

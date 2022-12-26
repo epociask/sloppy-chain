@@ -1,6 +1,7 @@
 use std::time::{SystemTime};
 
 use crate::tx;
+use crypto::core_types::{Hash, Address};
 
 // TODO: put timestamp as relevant block field
 // TOOD: move to /core/ dir
@@ -9,13 +10,12 @@ use crate::tx;
 
 
 pub struct Header {
-    pub parent_hash: u8,
-    pub hash: Vec<u8>,
-    pub height: i32,
+    pub parent_hash: Hash,
+    pub block_hash: Hash,
+    pub height: u64,
     pub timestamp: SystemTime,
     pub tx_list: Vec<tx::Transaction>,
     // TxRoot ... Build/import merkle tree 
-
 }
 
 pub struct Block {
@@ -24,12 +24,14 @@ pub struct Block {
 
 
 impl Block {
-    pub fn new(parent_hash: u8) -> Self {
+
+    // new ... block constructor 
+    pub fn new(parent_hash: &Hash, block_hash: &Hash, height: u64) -> Self {
 
         let block_header: Header = Header {
-            parent_hash: parent_hash,
-            hash: vec![0,1,2],
-            height: 0,
+            block_hash: block_hash.clone(),
+            parent_hash: parent_hash.clone(),
+            height: height,
             timestamp: SystemTime::now(),
             tx_list: vec![],
         };
@@ -38,4 +40,6 @@ impl Block {
             header: block_header,
         };
     }
+
+
 }
