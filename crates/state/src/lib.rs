@@ -1,19 +1,16 @@
-use primitives::{MemPool};
+use primitives::mempool;
 use primitives::tx::{TransferTx};
 
+use std::sync::Mutex;
+
 pub struct NodeState {
-    mem_pool: MemPool
+    pub mem_pool: Mutex<mempool::MemPool>
 }
 
 impl NodeState {
-    fn new(self) -> NodeState {
+    pub fn new() -> NodeState {
         return Self {
-            MemPool::new(),
+            mem_pool: Mutex::new(mempool::MemPool::new()),
         }
     }
-
-    fn process_tx(mut self, tx: TransferTx)  Result<u8, &'static str> {
-        return self.mem_pool.insert_tx(tx);
-    }
-
 }

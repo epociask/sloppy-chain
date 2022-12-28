@@ -18,7 +18,7 @@ use serde::{Serialize, Deserialize};
 //     Message: Box<str>,
 // }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct TransferTx {
     from: Address,
     to: Address,

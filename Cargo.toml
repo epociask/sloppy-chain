@@ -16,6 +16,7 @@ edition = "2021"
 api = {path= "crates/api"}
 primitives = {path = "crates/primitives"}
 crypto = {path = "crates/crypto"}
+state = {path = "crates/state"}
 
 ## External Dependencies
 trie-db = {git="https://github.com/paritytech/trie", branch="master"}
