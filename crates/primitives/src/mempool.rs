@@ -12,14 +12,14 @@ pub struct MemPool {
 
 impl MemPool {
     // TODO - pass config value here for mempool size
-    pub fn new() -> MemPool {
+    pub fn new(size: usize) -> MemPool {
         return Self {
-            pool: Vec::with_capacity(100),
+            pool: Vec::with_capacity(size),
         }
     }
 
     pub fn insert_tx(&mut self, transaction: TransferTx) -> Result<(), &'static str> {
-        if self.pool.len() >= 100 {
+        if self.pool.len() >= 5 {
             return Err("MemPool is currently full");
         }
 

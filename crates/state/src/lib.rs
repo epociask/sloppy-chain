@@ -8,9 +8,9 @@ pub struct NodeState {
 }
 
 impl NodeState {
-    pub fn new() -> NodeState {
+    pub fn new(mempool_size: usize) -> NodeState {
         return Self {
-            mem_pool: Mutex::new(mempool::MemPool::new()),
+            mem_pool: Mutex::new(mempool::MemPool::new(mempool_size)),
         }
     }
 }
