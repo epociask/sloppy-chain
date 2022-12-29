@@ -23,13 +23,15 @@ Block will represent a series of state transitions and hold the following data f
 ## Transaction
 
 ### V0
-Starting out, transaction will be encoded into a Big Endian byte array of the following:
+Starting out, transaction will be represented as a Big Endian byte array of the following:
 ```
-[0-19, 20-39]
+[0-19, 20-39, 40-59, 60-63]
 ``` 
 
 - `0-19`: The from address or transaction sender
-- `20-39`: The to address 
+- `20-39`: The `To` address
+- `40-59`: The `From` address
+- `60-63`: The Sloppy Coin Amount
 
 ## Mempool
 Mempool will represent a list of unfinalized transactions that are used to 
