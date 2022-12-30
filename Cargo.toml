@@ -16,6 +16,7 @@ edition = "2021"
 api = {path = "crates/api"}
 config = {path = "crates/config"}
 crypto = {path = "crates/crypto"}
+p2p = {path = "crates/p2p"}
 primitives = {path = "crates/primitives"}
 state = {path = "crates/state"}
 
