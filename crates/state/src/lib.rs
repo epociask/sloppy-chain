@@ -1,5 +1,4 @@
 use primitives::mempool;
-use primitives::tx::{TransferTx};
 
 use std::sync::Mutex;
 

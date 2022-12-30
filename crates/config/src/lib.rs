@@ -8,4 +8,8 @@ pub struct Config {
     pub api_port: u16,
     #[envconfig(from = "MAX_MEMPOOL")]
     pub max_mempool: usize,
+    #[envconfig(from = "ECDSA_PUB_KEY")]
+    pub pub_key: String,
+    #[envconfig(from = "ECDSA_PRIV_KEY")]
+    pub priv_key: String,
 }

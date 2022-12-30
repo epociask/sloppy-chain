@@ -11,12 +11,14 @@ Account model will be similar to Ethereum in that:
 ```
 
 ## Block
+### V0 
 Block will represent a series of state transitions and hold the following data fields:
 - `Header` - Block header
-    - `Creator` - Validator that produced this block
+    - `Creator` - Consensus operator that produced this block
     - `Previous_Hash` - Link to previous block hash
     - `Transaction_Trie` - Trie of all transactions within block
     - `State_Trie` - Trie of current world state
+    - `Number` - Block height number
 
 ## Chain
 
@@ -35,3 +37,6 @@ Starting out, transaction will be represented as a Big Endian byte array of the 
 
 ## Mempool
 Mempool will represent a list of unfinalized transactions that are used to 
+
+## Resource(s)
+- [Ethereum Block Structure](https://medium.com/@eiki1212/ethereum-block-structure-explained-1893bb226bd6#:~:text=Ethereum%20has%20two%20types%20of,transaction%20that%20an%20account%20creates.)
