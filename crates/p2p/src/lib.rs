@@ -6,10 +6,10 @@ use libp2p::swarm::Swarm;
 use std::error::Error;
 use std::task::Poll;
 
-pub fn main() -> Result<(), Box<dyn Error>> {
+pub fn main(peers: &Vec<String>) -> Result<(), Box<dyn Error>> {
     let key = identity::Keypair::generate_ed25519();
     let local_peer_id = PeerId::from(key.public());
-    println!("New peer ID {:?}", local_peer_id);
+    println!("New local peer ID {:?}", local_peer_id);
 
     let transport = block_on(libp2p::development_transport(key))?;
 
@@ -18,12 +18,11 @@ pub fn main() -> Result<(), Box<dyn Error>> {
     let mut swarm = Swarm::new(transport, behaviour, local_peer_id);
     swarm.listen_on("/ip4/0.0.0.0/tcp/0".parse()?)?;
 
-    // Dial the peer identified by the multi-address given as the second
-    // command-line argument, if any.
-    if let Some(addr) = std::env::args().nth(1) {
-        let remote = addr.parse()?;
+
+    for peer in peers {
+        let remote = peer.parse()?;
         swarm.dial_addr(remote)?;
-        println!("Dialed {}", addr)
+        println!("Dialed {}", peer)
     }
 
     let mut listening = false;

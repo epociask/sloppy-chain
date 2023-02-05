@@ -22,16 +22,21 @@ fn main() {
     let cloned_cfg = cfg.clone();
 
     let node_state = Arc::new(
-        state::NodeState::new(cfg.max_mempool)
+        state::NodeState::new(cfg.max_mempool())
     );
 
     // TODO - Multithread api run with additional concurrent routines
     let handle = thread::spawn(|| {
-        api::run(cloned_cfg, node_state);
+        let result = api::run(cloned_cfg, node_state);
+
+        match result {
+            Ok(_) => println!("API successfully finished running"),
+            Err(err) => println!("Got error {} ", err),
+        }
     });
 
 
-    p2p::main();
+    let opt = p2p::main(&cfg.peer_ids());
 
     handle.join().unwrap();
 
